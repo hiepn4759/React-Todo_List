@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
-
+import './TodoItem.css';
 
 class TodoIteam extends Component{
     render() {
+        const { item } = this.props;
+        let className = "TodoItem";
+        if(item.isCompete){
+            className += ' TodoItem-done';
+        }
         return(
-            <div className="TodoItem">
-                <h2>Nguyen Hiep</h2>
+            <div className={className}>
+                <h2>{ this.props.item.title }</h2>
             </div>
         );
     }

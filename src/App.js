@@ -1,27 +1,33 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import TodoIteam from './components/TodoItem';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.TodoIteams = [
+     {
+      title: 'Nguyen Hiep',
+      isCompete: true
+     },
+     {
+      title: 'Phan Huyen',
+      isCompete: true
+     },
+     {
+       title: 'Duc Nguyen',
+       isCompete: false
+     }
+    ];
+
+  }
+
   render(){
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <TodoIteam />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        {
+          this.TodoIteams.map((item, index) => <TodoIteam key={index} item={item} />)
+        }
       </div>
     );
   }
